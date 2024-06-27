@@ -6,10 +6,10 @@ using MyEShop.Domain.IRepositories.Products;
 
 namespace MyEShop.DataLayer.Repositories.Products;
 
-public class ProductRepository(MyShopDbContext context)
+public class ProductRepository(MyEShopDbContext context)
     : GenericRepository<Product>(context), IProductRepository
 {
-    private readonly MyShopDbContext _context = context;
+    private readonly MyEShopDbContext _context = context;
 
     public async Task<Product> GetProductByIdAsync(long productId , CancellationToken cancellationToken)
         => await _context.Products.SingleOrDefaultAsync(product => product.Id == productId , cancellationToken).ConfigureAwait(true);

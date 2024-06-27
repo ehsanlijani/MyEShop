@@ -5,7 +5,7 @@ using MyEShop.Application.Wrappers;
 
 namespace MyEShop.Application.UseCases.ProductCategory.Commands.Update;
 
-public record UpdateProductCategoryCommand(long ProductCategoryId , string Title, string TitleInUrl) : IRequest<Result<bool>>;
+public sealed record UpdateProductCategoryCommand(long ProductCategoryId , string Title, string TitleInUrl) : IRequest<Result<bool>>;
 
 
 

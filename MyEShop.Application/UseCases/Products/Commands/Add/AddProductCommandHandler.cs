@@ -3,7 +3,6 @@ using MediatR;
 using MyEShop.Application.Wrappers;
 using MyEShop.Domain.Entities.Products;
 using MyEShop.Domain.IRepositories.Products;
-using MyShop.Application;
 
 namespace MyEShop.Application.UseCases.Products.Commands.Add;
 
@@ -16,7 +15,7 @@ public class AddProductCommandHandler(IProductRepository productRepository , IMa
         bool result = await productRepository.AddAsync(product , cancellationToken);
 
         if(result is false)
-            return Result.Failure<bool>(CommonMessages.Database.Failed);
+            return Result.Failure<bool>(ApplicationLayerCommonMessages.Database.Failed);
 
         await productRepository.SaveChangesAsync(cancellationToken);
 

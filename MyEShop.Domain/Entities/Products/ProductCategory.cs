@@ -8,8 +8,8 @@ public class ProductCategory : BaseEntity<int>
 {
     #region Properties
 
-    public string Title { get; set; }
-    public string TitleInUrl { get; set; }
+    public string Title { get; private set; }
+    public string TitleInUrl { get; private set; }
 
     #endregion
 

@@ -1,3 +1,7 @@
+using HealthChecks.UI.Client;
+using HealthChecks.UI.Configuration;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using MyEShop.Api;
 using MyEShop.Application;
 using MyEShop.DataLayer;
 
@@ -18,7 +22,8 @@ builder.Services.AddCors();
 
 builder.Services
     .RegisterDataLayerConfiguration(builder.Configuration)
-    .RegisterApplicationConfigurations(builder.Configuration);
+    .RegisterApplicationConfigurations(builder.Configuration)
+    .RegisterConfigureHealthChecks(builder.Configuration);
 
 #endregion
 
@@ -43,5 +48,20 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+#region Helth Check
+
+app.MapHealthChecks("/api/health", new HealthCheckOptions()
+{
+    Predicate = _ => true,
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
+
+app.UseHealthChecksUI(delegate (Options options)
+{
+    options.UIPath = "/healthcheck-ui";
+});
+
+#endregion
 
 app.Run();

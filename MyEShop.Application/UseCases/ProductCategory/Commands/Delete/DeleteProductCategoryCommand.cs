@@ -5,7 +5,7 @@ using MyEShop.Application.Wrappers;
 
 namespace MyEShop.Application.UseCases.ProductCategory.Commands.Delete;
 
-public record DeleteProductCategoryCommand(int ProductCategoryId) : IRequest<Result<bool>>
-{
-}
+public sealed record DeleteProductCategoryCommand(int ProductCategoryId) : IRequest<Result<bool>>;
+
+
 

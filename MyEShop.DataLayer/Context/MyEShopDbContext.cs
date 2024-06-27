@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace MyEShop.DataLayer.Context;
 
-public class MyShopDbContext(DbContextOptions<MyShopDbContext> options) : DbContext(options)
+public class MyEShopDbContext(DbContextOptions<MyEShopDbContext> options) : DbContext(options)
 {
     public DbSet<Product> Products { get; set; }
     public DbSet<ProductCategory> ProductCategories { get; set; }

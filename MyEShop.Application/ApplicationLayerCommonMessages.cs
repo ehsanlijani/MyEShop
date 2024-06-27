@@ -1,7 +1,7 @@
 ﻿using MyEShop.Application.Wrappers;
 
-namespace MyShop.Application;
-public static class CommonMessages
+namespace MyEShop.Application;
+public static class ApplicationLayerCommonMessages
 {
     public static class Database
     {

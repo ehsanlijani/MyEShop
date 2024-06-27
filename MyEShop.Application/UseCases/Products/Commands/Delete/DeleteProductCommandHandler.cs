@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using MyEShop.Application.Wrappers;
 using MyEShop.Domain.IRepositories.Products;
-using MyShop.Application;
 
 namespace MyEShop.Application.UseCases.Products.Commands.Delete;
 
@@ -13,12 +12,12 @@ public class DeleteProductCommandHandler(IProductRepository productRepository) :
             await productRepository.GetProductByIdAsync(request.ProductId, cancellationToken);
 
         if (product is null)
-            return Result.Failure<bool>(CommonMessages.Database.NotFount);
+            return Result.Failure<bool>(ApplicationLayerCommonMessages.Database.NotFount);
 
         bool result = productRepository.Delete(product);
 
         if (!result)
-            return Result.Failure<bool>(CommonMessages.Database.Failed);
+            return Result.Failure<bool>(ApplicationLayerCommonMessages.Database.Failed);
 
         await productRepository.SaveChangesAsync(cancellationToken);
         return Result.Success(result);

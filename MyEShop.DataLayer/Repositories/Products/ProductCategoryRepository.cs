@@ -6,11 +6,11 @@ using MyEShop.Domain.IRepositories.Products;
 
 namespace MyEShop.DataLayer.Repositories.Products;
 
-public class ProductCategoryRepository(MyShopDbContext context)
+public class ProductCategoryRepository(MyEShopDbContext context)
     : GenericRepository<ProductCategory>(context), IProductCategoryRepository
 {
 
-    private readonly MyShopDbContext _context = context;
+    private readonly MyEShopDbContext _context = context;
 
     public async Task<bool> IsProductCategoryExistsByNameInUrl(string titleInUrl, CancellationToken cancellationToken)
         => await _context

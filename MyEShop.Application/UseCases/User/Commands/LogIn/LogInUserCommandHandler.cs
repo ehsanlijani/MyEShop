@@ -3,7 +3,6 @@ using MediatR;
 using MyEShop.Application.Services.Interfaces;
 using MyEShop.Application.Wrappers;
 using MyEShop.Domain.IRepositories.Users;
-using MyShop.Application;
 
 namespace MyEShop.Application.UseCases.User.Commands.LogIn;
 
@@ -14,10 +13,10 @@ public class LogInUserCommandHandler(IUserRepository userRepository, ITokenServi
         Domain.Entities.Users.User user = await userRepository.GetUserByEmail(request.Email);
 
         if (user == null)
-            return Result.Failure<bool>(CommonMessages.User.UserNotFound);
+            return Result.Failure<bool>(ApplicationLayerCommonMessages.User.UserNotFound);
 
         if (user.Password != request.Password)
-            return Result.Failure<bool>(CommonMessages.User.UserNotFound);
+            return Result.Failure<bool>(ApplicationLayerCommonMessages.User.UserNotFound);
 
         string token = tokenService.CreateToken(user);
 

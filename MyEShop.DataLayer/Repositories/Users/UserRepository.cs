@@ -6,9 +6,9 @@ using MyEShop.Domain.IRepositories.Users;
 
 namespace MyEShop.DataLayer.Repositories.Users;
 
-public class UserRepository(MyShopDbContext dbContext) : GenericRepository<User>(dbContext), IUserRepository
+public class UserRepository(MyEShopDbContext dbContext) : GenericRepository<User>(dbContext), IUserRepository
 {
-    private readonly MyShopDbContext _dbContext = dbContext;
+    private readonly MyEShopDbContext _dbContext = dbContext;
 
     public async Task<bool> IsUserExistByEmailAsync(string email)
          => await _dbContext.Users.AnyAsync(user => user.Email == email);

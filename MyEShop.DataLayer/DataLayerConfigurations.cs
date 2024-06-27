@@ -17,7 +17,7 @@ public static class DataLayerConfigs
     {
         #region Context
 
-        services.AddDbContext<MyShopDbContext>(options =>
+        services.AddDbContext<MyEShopDbContext>(options =>
         {
             options.UseSqlServer(configuration.GetConnectionString("MyShopDbContext"));
         });

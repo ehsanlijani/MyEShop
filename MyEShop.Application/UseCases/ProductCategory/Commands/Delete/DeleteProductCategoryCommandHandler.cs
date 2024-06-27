@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using MyEShop.Application.Wrappers;
 using MyEShop.Domain.IRepositories.Products;
-using MyShop.Application;
 
 namespace MyEShop.Application.UseCases.ProductCategory.Commands.Delete;
 
@@ -13,12 +12,12 @@ public class DeleteProductCategoryCommandHandler(IProductCategoryRepository prod
             await productCategoryRepository.GetProductCategoryById(request.ProductCategoryId, cancellationToken);
 
         if (productCategory == null)
-            return Result.Failure<bool>(CommonMessages.Database.NotFount);
+            return Result.Failure<bool>(ApplicationLayerCommonMessages.Database.NotFount);
 
         bool result = productCategoryRepository.Delete(productCategory);
 
         if (!result)
-            return Result.Failure<bool>(CommonMessages.Database.Failed);
+            return Result.Failure<bool>(ApplicationLayerCommonMessages.Database.Failed);
 
         await productCategoryRepository.SaveChangesAsync(cancellationToken);
         return Result.Success(result);

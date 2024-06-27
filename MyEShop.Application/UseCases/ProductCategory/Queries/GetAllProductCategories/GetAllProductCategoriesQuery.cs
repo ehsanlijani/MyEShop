@@ -2,7 +2,7 @@
 
 namespace MyEShop.Application.UseCases.ProductCategory.Queries.GetAllProductCategories;
 
-public record GetAllProductCategoriesQuery : IRequest<List<Domain.Entities.Products.ProductCategory>>;
+public sealed record GetAllProductCategoriesQuery : IRequest<List<Domain.Entities.Products.ProductCategory>>;
 
 
 

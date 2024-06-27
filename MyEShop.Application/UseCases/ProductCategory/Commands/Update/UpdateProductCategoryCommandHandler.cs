@@ -2,7 +2,6 @@
 using MediatR;
 using MyEShop.Application.Wrappers;
 using MyEShop.Domain.IRepositories.Products;
-using MyShop.Application;
 
 namespace MyEShop.Application.UseCases.ProductCategory.Commands.Update;
 
@@ -15,14 +14,14 @@ public class UpdateProductCategoryCommandHandler(IProductCategoryRepository prod
             await productCategoryRepository.GetProductCategoryById(request.ProductCategoryId, cancellationToken);
 
         if (productCategory is null)
-            return Result.Failure<bool>(CommonMessages.Database.NotFount);
+            return Result.Failure<bool>(ApplicationLayerCommonMessages.Database.NotFount);
 
         mapper.Map(request, productCategory);
 
         bool result = productCategoryRepository.Update(productCategory);
 
         if (!result)
-            return Result.Failure<bool>(CommonMessages.Database.Failed);
+            return Result.Failure<bool>(ApplicationLayerCommonMessages.Database.Failed);
 
         await productCategoryRepository.SaveChangesAsync(cancellationToken);
         return Result.Success(result);

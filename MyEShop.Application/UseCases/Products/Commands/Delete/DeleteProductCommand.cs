@@ -5,7 +5,7 @@ using MyEShop.Application.Wrappers;
 
 namespace MyEShop.Application.UseCases.Products.Commands.Delete;
 
-public record DeleteProductCommand(long ProductId) : IRequest<Result<bool>>;
+public sealed record DeleteProductCommand(long ProductId) : IRequest<Result<bool>>;
 
 
 

@@ -5,7 +5,7 @@ using MyEShop.Domain.IRepositories.Common;
 
 namespace MyEShop.DataLayer.Repositories.Common;
 
-public class GenericRepository<TEntity>(MyShopDbContext dbContext) : IGenericRepository<TEntity>
+public class GenericRepository<TEntity>(MyEShopDbContext dbContext) : IGenericRepository<TEntity>
     where TEntity : class
 {
     private readonly DbSet<TEntity> _dbSet = dbContext.Set<TEntity>();

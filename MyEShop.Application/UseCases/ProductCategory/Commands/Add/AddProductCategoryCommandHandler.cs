@@ -2,7 +2,6 @@ using AutoMapper;
 using MediatR;
 using MyEShop.Application.Wrappers;
 using MyEShop.Domain.IRepositories.Products;
-using MyShop.Application;
 
 namespace MyEShop.Application.UseCases.ProductCategory.Commands.Add;
 
@@ -15,14 +14,14 @@ public class AddProductCategoryCommandHandler(IProductCategoryRepository product
         bool isExist = await productCategoryRepository.IsProductCategoryExistsByNameInUrl(request.TitleInUrl , cancellationToken);
 
         if (isExist)
-            return Result.Failure<bool>(CommonMessages.Database.DuplicateTitle);
+            return Result.Failure<bool>(ApplicationLayerCommonMessages.Database.DuplicateTitle);
 
         Domain.Entities.Products.ProductCategory productCategory = mapper.Map<Domain.Entities.Products.ProductCategory>(request);
 
         bool result = await productCategoryRepository.AddAsync(productCategory, cancellationToken);
 
         if (result is false) 
-            return Result.Failure<bool>(CommonMessages.Database.Failed);
+            return Result.Failure<bool>(ApplicationLayerCommonMessages.Database.Failed);
 
         await productCategoryRepository.SaveChangesAsync(cancellationToken);
 
