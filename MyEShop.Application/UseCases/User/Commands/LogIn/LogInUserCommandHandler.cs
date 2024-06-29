@@ -10,7 +10,7 @@ public class LogInUserCommandHandler(IUserRepository userRepository, ITokenServi
 {
     public async Task<Result<bool>> Handle(LogInUserCommand request, CancellationToken cancellationToken)
     {
-        Domain.Entities.Users.User user = await userRepository.GetUserByEmail(request.Email);
+        Domain.Entities.Users.User user = await userRepository.GetUserByEmail(request.Email, cancellationToken);
 
         if (user == null)
             return Result.Failure<bool>(ApplicationLayerCommonMessages.User.UserNotFound);

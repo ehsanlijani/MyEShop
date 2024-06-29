@@ -5,8 +5,8 @@ namespace MyEShop.Domain.IRepositories.Users;
 
 public interface IUserRepository : IGenericRepository<User>
 {
-    Task<bool> IsUserExistByEmailAsync(string email);
+    Task<bool> IsUserExistByEmailAsync(string email, CancellationToken cancellationToken);
 
-    Task<User> GetUserByEmail(string email);
+    Task<User> GetUserByEmail(string email, CancellationToken cancellationToken);
 }
 

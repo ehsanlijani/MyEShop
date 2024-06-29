@@ -32,7 +32,7 @@ public class GenericRepository<TEntity>(MyEShopDbContext dbContext) : IGenericRe
     }
        
     public async Task SaveChangesAsync(CancellationToken cancellationToken)
-        => await dbContext.SaveChangesAsync(cancellationToken);
+        => await dbContext.SaveChangesAsync(cancellationToken).ConfigureAwait(true);
 
 }
 

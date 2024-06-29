@@ -14,10 +14,10 @@ public class ProductCategoryRepository(MyEShopDbContext context)
 
     public async Task<bool> IsProductCategoryExistsByNameInUrl(string titleInUrl, CancellationToken cancellationToken)
         => await _context
-            .ProductCategories.
-            AnyAsync(category => category.TitleInUrl == titleInUrl, cancellationToken).ConfigureAwait(true);
+            .ProductCategories.AsNoTracking().
+            AnyAsync(category => category.TitleInUrl == titleInUrl, cancellationToken).ConfigureAwait(false);
 
-    public async Task<ProductCategory> GetProductCategoryById(long categoryId , CancellationToken cancellationToken)
-        => await _context.ProductCategories.SingleOrDefaultAsync(category => category.Id == categoryId , cancellationToken).ConfigureAwait(true);
+    public async Task<ProductCategory> GetProductCategoryById(long categoryId, CancellationToken cancellationToken)
+        => await _context.ProductCategories.AsNoTracking().SingleOrDefaultAsync(category => category.Id == categoryId, cancellationToken).ConfigureAwait(false);
 
 }

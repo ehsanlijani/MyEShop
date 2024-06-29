@@ -10,7 +10,7 @@ public class RegisterUserCommandHandler(IUserRepository userRepository, IMapper 
 {
     public async Task<Result<bool>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {
-        bool isUserExistByEmail = await userRepository.IsUserExistByEmailAsync(request.Email);
+        bool isUserExistByEmail = await userRepository.IsUserExistByEmailAsync(request.Email , cancellationToken);
 
         if (isUserExistByEmail)
             return Result.Failure<bool>(ApplicationLayerCommonMessages.User.DuplicateEmail);

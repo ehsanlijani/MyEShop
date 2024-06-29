@@ -10,11 +10,11 @@ public class UserRepository(MyEShopDbContext dbContext) : GenericRepository<User
 {
     private readonly MyEShopDbContext _dbContext = dbContext;
 
-    public async Task<bool> IsUserExistByEmailAsync(string email)
-         => await _dbContext.Users.AnyAsync(user => user.Email == email);
+    public async Task<bool> IsUserExistByEmailAsync(string email, CancellationToken cancellationToken)
+         => await _dbContext.Users.AsNoTracking().AnyAsync(user => user.Email == email, cancellationToken).ConfigureAwait(false);
 
-    public async Task<User> GetUserByEmail(string email)
-        => await _dbContext.Users.SingleOrDefaultAsync(user => user.Email == email);
+    public async Task<User> GetUserByEmail(string email, CancellationToken cancellationToken)
+        => await _dbContext.Users.AsNoTracking().SingleOrDefaultAsync(user => user.Email == email, cancellationToken).ConfigureAwait(false);
 }
 
 

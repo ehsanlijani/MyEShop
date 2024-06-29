@@ -11,7 +11,7 @@ public class ProductRepository(MyEShopDbContext context)
 {
     private readonly MyEShopDbContext _context = context;
 
-    public async Task<Product> GetProductByIdAsync(long productId , CancellationToken cancellationToken)
-        => await _context.Products.SingleOrDefaultAsync(product => product.Id == productId , cancellationToken).ConfigureAwait(true);
+    public async Task<Product> GetProductByIdAsync(long productId, CancellationToken cancellationToken)
+        => await _context.Products.AsNoTracking().SingleOrDefaultAsync(product => product.Id == productId, cancellationToken).ConfigureAwait(false);
 
 }
