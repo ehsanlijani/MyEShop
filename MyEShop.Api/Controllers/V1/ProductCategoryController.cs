@@ -8,7 +8,6 @@ using MyEShop.Application.UseCases.ProductCategory.Queries.GetAllProductCategori
 
 namespace MyEShop.Api.Controllers.V1;
 
-[Authorize]
 public class ProductCategoryController(ISender sender) : BaseController(sender)
 {
     [HttpGet]
