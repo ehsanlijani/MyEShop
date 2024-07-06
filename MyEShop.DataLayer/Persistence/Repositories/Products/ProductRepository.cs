@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyEShop.DataLayer.Context;
-using MyEShop.DataLayer.Repositories.Common;
 using MyEShop.Domain.Entities.Products;
 using MyEShop.Domain.IRepositories.Products;
+using MyEShop.Infrastructure.Persistence.Context;
+using MyEShop.Infrastructure.Persistence.Repositories.Common;
 
-namespace MyEShop.DataLayer.Repositories.Products;
+namespace MyEShop.Infrastructure.Persistence.Repositories.Products;
 
 public class ProductRepository(MyEShopDbContext context)
     : GenericRepository<Product>(context), IProductRepository
@@ -12,6 +12,7 @@ public class ProductRepository(MyEShopDbContext context)
     private readonly MyEShopDbContext _context = context;
 
     public async Task<Product> GetProductByIdAsync(long productId, CancellationToken cancellationToken)
-        => await _context.Products.AsNoTracking().SingleOrDefaultAsync(product => product.Id == productId, cancellationToken).ConfigureAwait(false);
+        => await _context.Products.AsNoTracking()
+            .SingleOrDefaultAsync(product => product.Id == productId, cancellationToken).ConfigureAwait(false);
 
 }

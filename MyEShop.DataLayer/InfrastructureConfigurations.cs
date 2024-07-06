@@ -1,19 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MyEShop.DataLayer.Context;
-using MyEShop.DataLayer.Repositories.Common;
-using MyEShop.DataLayer.Repositories.Products;
-using MyEShop.DataLayer.Repositories.Users;
 using MyEShop.Domain.IRepositories.Common;
 using MyEShop.Domain.IRepositories.Products;
 using MyEShop.Domain.IRepositories.Users;
+using MyEShop.Infrastructure.Persistence.Context;
+using MyEShop.Infrastructure.Persistence.Repositories.Common;
+using MyEShop.Infrastructure.Persistence.Repositories.Products;
+using MyEShop.Infrastructure.Persistence.Repositories.Users;
 
-namespace MyEShop.DataLayer;
+namespace MyEShop.Infrastructure;
 
-public static class DataLayerConfigs
+public static class InfrastructureConfigs
 {
-    public static IServiceCollection RegisterDataLayerConfiguration(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection RegisterInfrastructureConfiguration(this IServiceCollection services, IConfiguration configuration)
     {
         #region Context
 

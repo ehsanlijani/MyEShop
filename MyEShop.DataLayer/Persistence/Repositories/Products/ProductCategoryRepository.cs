@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyEShop.DataLayer.Context;
-using MyEShop.DataLayer.Repositories.Common;
 using MyEShop.Domain.Entities.Products;
 using MyEShop.Domain.IRepositories.Products;
+using MyEShop.Infrastructure.Persistence.Context;
+using MyEShop.Infrastructure.Persistence.Repositories.Common;
 
-namespace MyEShop.DataLayer.Repositories.Products;
+namespace MyEShop.Infrastructure.Persistence.Repositories.Products;
 
 public class ProductCategoryRepository(MyEShopDbContext context)
     : GenericRepository<ProductCategory>(context), IProductCategoryRepository

@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyEShop.DataLayer.Context;
-using MyEShop.DataLayer.Repositories.Common;
 using MyEShop.Domain.Entities.Users;
 using MyEShop.Domain.IRepositories.Users;
+using MyEShop.Infrastructure.Persistence.Context;
+using MyEShop.Infrastructure.Persistence.Repositories.Common;
 
-namespace MyEShop.DataLayer.Repositories.Users;
+namespace MyEShop.Infrastructure.Persistence.Repositories.Users;
 
 public class UserRepository(MyEShopDbContext dbContext) : GenericRepository<User>(dbContext), IUserRepository
 {

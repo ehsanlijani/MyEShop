@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using MyEShop.DataLayer.Context;
 using MyEShop.Domain.IRepositories.Common;
+using MyEShop.Infrastructure.Persistence.Context;
 
-namespace MyEShop.DataLayer.Repositories.Common;
+namespace MyEShop.Infrastructure.Persistence.Repositories.Common;
 
 public class GenericRepository<TEntity>(MyEShopDbContext dbContext) : IGenericRepository<TEntity>
     where TEntity : class
@@ -30,7 +30,7 @@ public class GenericRepository<TEntity>(MyEShopDbContext dbContext) : IGenericRe
         EntityEntry result = _dbSet.Remove(entity);
         return result.State == EntityState.Deleted;
     }
-       
+
     public async Task SaveChangesAsync(CancellationToken cancellationToken)
         => await dbContext.SaveChangesAsync(cancellationToken).ConfigureAwait(true);
 

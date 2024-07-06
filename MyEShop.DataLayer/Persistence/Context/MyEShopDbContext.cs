@@ -3,7 +3,7 @@ using MyEShop.Domain.Entities.Products;
 using MyEShop.Domain.Entities.Users;
 using System.Reflection;
 
-namespace MyEShop.DataLayer.Context;
+namespace MyEShop.Infrastructure.Persistence.Context;
 
 public class MyEShopDbContext(DbContextOptions<MyEShopDbContext> options) : DbContext(options)
 {

@@ -5,7 +5,7 @@ using MyEShop.Application.Wrappers;
 
 namespace MyEShop.Application.UseCases.User.Commands.LogIn;
 
-public record LogInUserCommand(string Email , string Password) : IRequest<Result<bool>>;
+public record LogInUserCommand(string Email , string Password) : IRequest<Result<string>>;
 
 
 

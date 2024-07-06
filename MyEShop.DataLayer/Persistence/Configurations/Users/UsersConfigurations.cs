@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MyEShop.Domain.Entities.Users;
 
-namespace MyEShop.DataLayer.EntitiesConfigurations.Users;
+namespace MyEShop.Infrastructure.Persistence.Configurations.Users;
 
 public class UsersConfigurations : IEntityTypeConfiguration<User>
 {

@@ -16,7 +16,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-    <ProjectReference Include="..\MyEShop.DataLayer\MyEShop.DataLayer.csproj" />
+    <ProjectReference Include="..\MyEShop.DataLayer\MyEShop.Infrastructure.csproj" />
   </ItemGroup>
 
 	<ItemGroup>

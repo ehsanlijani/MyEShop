@@ -3,7 +3,7 @@ using HealthChecks.UI.Configuration;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using MyEShop.Api;
 using MyEShop.Application;
-using MyEShop.DataLayer;
+using MyEShop.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +21,7 @@ builder.Services.AddCors();
 #region Add Dependecies
 
 builder.Services
-    .RegisterDataLayerConfiguration(builder.Configuration)
+    .RegisterInfrastructureConfiguration(builder.Configuration)
     .RegisterApplicationConfigurations(builder.Configuration)
     .RegisterConfigureHealthChecks(builder.Configuration);
 

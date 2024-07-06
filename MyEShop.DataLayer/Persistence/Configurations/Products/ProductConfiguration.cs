@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MyEShop.Domain.Entities.Products;
 
-namespace MyEShop.DataLayer.EntitiesConfigurations.Products;
+namespace MyEShop.Infrastructure.Persistence.Configurations.Products;
 
 public class ProductConfiguration : IEntityTypeConfiguration<Product>
 {

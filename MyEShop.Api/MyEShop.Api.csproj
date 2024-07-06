@@ -32,6 +32,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyEShop.Application\MyEShop.Application.csproj" />
+    <ProjectReference Include="..\MyEShop.DataLayer\MyEShop.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
