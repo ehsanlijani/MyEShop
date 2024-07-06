@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  myeshop.api:
+    image: ${DOCKER_REGISTRY-}myeshopapi
+    build:
+      context: .
+      dockerfile: MyEShop.Api\Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081" 

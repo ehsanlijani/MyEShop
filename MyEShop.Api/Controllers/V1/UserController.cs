@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using MyEShop.Application.UseCases.User.Commands.LogIn;
+using MyEShop.Application.UseCases.User.Commands.Login;
 using MyEShop.Application.UseCases.User.Commands.Register;
 
 namespace MyEShop.Api.Controllers.V1;
@@ -17,7 +17,7 @@ public class UserController(ISender sender) : BaseController(sender)
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> LogIn(LogInUserCommand registerUserCommand, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> LogIn(LoginUserCommand registerUserCommand, CancellationToken cancellationToken = default)
         => Ok(await MediatR.Send(registerUserCommand, cancellationToken));
 }
 

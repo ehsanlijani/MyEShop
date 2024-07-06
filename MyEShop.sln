@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyEShop.Infrastructure", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyEShop.Application", "MyEShop.Application\MyEShop.Application.csproj", "{86B0E383-5EFE-4CF7-B581-F6111BBC8EAB}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{EED7A5FF-AD2B-42D4-9DD4-134FCE90E973}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{86B0E383-5EFE-4CF7-B581-F6111BBC8EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86B0E383-5EFE-4CF7-B581-F6111BBC8EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86B0E383-5EFE-4CF7-B581-F6111BBC8EAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EED7A5FF-AD2B-42D4-9DD4-134FCE90E973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EED7A5FF-AD2B-42D4-9DD4-134FCE90E973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EED7A5FF-AD2B-42D4-9DD4-134FCE90E973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EED7A5FF-AD2B-42D4-9DD4-134FCE90E973}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

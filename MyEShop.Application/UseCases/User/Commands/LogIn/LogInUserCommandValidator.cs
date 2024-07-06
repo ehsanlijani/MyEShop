@@ -1,10 +1,11 @@
 ﻿using FluentValidation;
+using MyEShop.Application.UseCases.User.Commands.Login;
 
 namespace MyEShop.Application.UseCases.User.Commands.LogIn;
 
-public class LogInUserCommandValidator : AbstractValidator<LogInUserCommand>
+public class LoginUserCommandValidator : AbstractValidator<LoginUserCommand>
 {
-    public LogInUserCommandValidator()
+    public LoginUserCommandValidator()
     {
         RuleFor(p => p.Email)
             .NotEmpty()
