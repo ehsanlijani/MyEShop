@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyEShop.Domain.Contracts.Common;
 using MyEShop.Domain.Entities.Products;
 using MyEShop.Domain.Entities.Users;
-using MyEShop.Infrastructure.Extensions;
 using System.Reflection;
 
 namespace MyEShop.Infrastructure.Persistence.Context;
@@ -17,7 +15,6 @@ public class MyEShopDbContext(DbContextOptions<MyEShopDbContext> options) : DbCo
     {
         builder.HasDefaultSchema("BASE");
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-       // builder.RegisterAllSeeders(typeof(IBaseSeeder<>).Assembly);
 
         base.OnModelCreating(builder);
     }
