@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using MyEShop.Application.Wrappers;
-using MyEShop.Domain.IRepositories.Products;
+using MyEShop.Domain.Contracts.Products;
 
 namespace MyEShop.Application.UseCases.ProductCategory.Commands.Delete;
 

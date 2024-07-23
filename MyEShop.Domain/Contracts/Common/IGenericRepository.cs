@@ -1,4 +1,4 @@
-﻿namespace MyEShop.Domain.IRepositories.Common;
+﻿namespace MyEShop.Domain.Contracts.Common;
 
 public interface IGenericRepository<TEntity> where TEntity : class
 {

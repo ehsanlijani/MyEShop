@@ -2,7 +2,7 @@
 using MediatR;
 using MyEShop.Application.Services.Interfaces;
 using MyEShop.Application.Wrappers;
-using MyEShop.Domain.IRepositories.Users;
+using MyEShop.Domain.Contracts.Users;
 
 namespace MyEShop.Application.UseCases.User.Commands.Login;
 

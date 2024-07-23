@@ -1,7 +1,7 @@
-﻿using MyEShop.Domain.Entities.Products;
-using MyEShop.Domain.IRepositories.Common;
+﻿using MyEShop.Domain.Contracts.Common;
+using MyEShop.Domain.Entities.Products;
 
-namespace MyEShop.Domain.IRepositories.Products;
+namespace MyEShop.Domain.Contracts.Products;
 
 public interface IProductRepository : IGenericRepository<Product>
 {

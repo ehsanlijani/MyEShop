@@ -5,7 +5,18 @@ services:
     image: ${DOCKER_REGISTRY-}myeshopapi
     build:
       context: .
-      dockerfile: MyEShop.Api\Dockerfile
+      dockerfile: MyEShop.Api/Dockerfile
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sql_server
+    environment:
+      ACCEPT_EULA: "Y"                 
     ports:
-      - "8080:8080"
-      - "8081:8081" 
+      - "1433:1433"                    
+    volumes:
+      - sqlserver-data:/var/opt/mssql   
+volumes:
+  sqlserver-data:
+  
+  

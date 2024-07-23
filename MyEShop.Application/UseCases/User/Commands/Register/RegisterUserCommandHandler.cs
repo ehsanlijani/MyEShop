@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using MyEShop.Application.Wrappers;
-using MyEShop.Domain.IRepositories.Users;
+using MyEShop.Domain.Contracts.Users;
 
 namespace MyEShop.Application.UseCases.User.Commands.Register;
 

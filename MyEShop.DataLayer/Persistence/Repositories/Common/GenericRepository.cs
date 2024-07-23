@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using MyEShop.Domain.IRepositories.Common;
+using MyEShop.Domain.Contracts.Common;
 using MyEShop.Infrastructure.Persistence.Context;
 
 namespace MyEShop.Infrastructure.Persistence.Repositories.Common;

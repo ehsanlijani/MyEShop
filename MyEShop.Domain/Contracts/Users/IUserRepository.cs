@@ -1,7 +1,7 @@
-﻿using MyEShop.Domain.Entities.Users;
-using MyEShop.Domain.IRepositories.Common;
+﻿using MyEShop.Domain.Contracts.Common;
+using MyEShop.Domain.Entities.Users;
 
-namespace MyEShop.Domain.IRepositories.Users;
+namespace MyEShop.Domain.Contracts.Users;
 
 public interface IUserRepository : IGenericRepository<User>
 {

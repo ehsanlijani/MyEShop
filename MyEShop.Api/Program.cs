@@ -1,9 +1,12 @@
 using HealthChecks.UI.Client;
 using HealthChecks.UI.Configuration;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.EntityFrameworkCore;
 using MyEShop.Api;
 using MyEShop.Application;
 using MyEShop.Infrastructure;
+using MyEShop.Infrastructure.Persistence.Context;
+using MyEShop.Infrastructure.Persistence.Seeder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +31,8 @@ builder.Services
 #endregion
 
 var app = builder.Build();
+
+app.Services.EnsureDatabaseMigratedAndSeeded();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

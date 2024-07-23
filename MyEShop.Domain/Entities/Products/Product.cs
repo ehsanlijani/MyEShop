@@ -8,20 +8,21 @@ public class Product : BaseEntity<long>
 {
     #region Properties
 
-    public string Name { get; private set; }
+    public string Name { get; set; }
 
-    public int Price { get; private set; }
+    public int Price { get; set; }
 
-    public int Quantity { get; private set; }
+    public int Quantity { get; set; }
 
-    public string ShortDescription { get; private set; }
+    public string ShortDescription { get; set; }
 
-    public string Description { get; private set; }
+    public string Description { get; set; }
 
     #endregion
 
-    #region Relations
-    public int ProductCategoryId { get; private set; }
+    #region Relations   
+
+    public int ProductCategoryId { get; set; }
 
     public ProductCategory ProductCategory { get; set; }
 

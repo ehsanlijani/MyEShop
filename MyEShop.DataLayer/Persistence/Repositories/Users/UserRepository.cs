@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyEShop.Domain.Contracts.Users;
 using MyEShop.Domain.Entities.Users;
-using MyEShop.Domain.IRepositories.Users;
 using MyEShop.Infrastructure.Persistence.Context;
 using MyEShop.Infrastructure.Persistence.Repositories.Common;
 

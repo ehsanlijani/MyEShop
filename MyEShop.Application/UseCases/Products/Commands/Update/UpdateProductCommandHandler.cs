@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
 using MyEShop.Application.Wrappers;
+using MyEShop.Domain.Contracts.Products;
 using MyEShop.Domain.Entities.Products;
-using MyEShop.Domain.IRepositories.Products;
 
 namespace MyEShop.Application.UseCases.Products.Commands.Update;
 

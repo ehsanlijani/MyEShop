@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using MyEShop.Domain.IRepositories.Products;
+using MyEShop.Domain.Contracts.Products;
 
 namespace MyEShop.Application.UseCases.ProductCategory.Queries.GetAllProductCategories;
 
