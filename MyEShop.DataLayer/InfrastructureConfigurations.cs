@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using MyEShop.Domain.Contracts.Common;
 using MyEShop.Infrastructure.Persistence.Context;
 using MyEShop.Infrastructure.Persistence.Repositories.Common;
@@ -12,6 +11,8 @@ namespace MyEShop.Infrastructure;
 
 public static class InfrastructureConfigs
 {
+    #region Add Dependencies
+
     public static IServiceCollection RegisterInfrastructureConfiguration(this IServiceCollection services, IConfiguration configuration)
     {
         #region Context
@@ -49,12 +50,18 @@ public static class InfrastructureConfigs
         return services;
     }
 
+    #endregion
+
+    #region Add Seed Data
+
     public static void EnsureDatabaseMigratedAndSeeded(this IServiceProvider serviceProvider)
     {
         using var scope = serviceProvider.CreateScope();
         var services = scope.ServiceProvider;
         var context = services.GetRequiredService<MyEShopDbContext>();
-        context.Database.Migrate(); // Ensures the database is created and migrations applied
+        context.Database.Migrate();
         ProductSeeder.SeedData(context);
     }
+
+    #endregion
 }

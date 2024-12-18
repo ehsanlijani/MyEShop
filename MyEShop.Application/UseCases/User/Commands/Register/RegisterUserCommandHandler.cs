@@ -23,6 +23,7 @@ public class RegisterUserCommandHandler(IUserRepository userRepository, IMapper 
             return Result.Failure<bool>(ApplicationLayerCommonMessages.Database.Failed);
 
         await userRepository.SaveChangesAsync(cancellationToken);
+
         return Result.Success(result);
     }
 }
