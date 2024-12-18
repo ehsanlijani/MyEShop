@@ -11,8 +11,22 @@ public class ProductSeeder
         {
             var products = new List<Product>
             {
-                new Product { Name = "test1", Price = 180000, ProductCategoryId = 2 , Quantity = 10 , Description = "this is description" , ShortDescription = "this is short description"},
-                new Product { Name = "test2", Price = 180000, ProductCategoryId = 2 , Quantity = 2 , Description = "this is description2" , ShortDescription = "this is short description2"}
+                new Product
+                {
+                    Name = "test1",
+                    Price = 180000,
+                    ProductCategoryId = 2 ,
+                    Quantity = 10 ,
+                    Description = "this is description" ,
+                    ShortDescription = "this is short description"
+                },
+                new Product {
+                    Name = "test2",
+                    Price = 180000, ProductCategoryId = 2 ,
+                    Quantity = 2 ,
+                    Description = "this is description2" ,
+                    ShortDescription = "this is short description2"
+                }
             };
 
             context.Products.AddRange(products);
