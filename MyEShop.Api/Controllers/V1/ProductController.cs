@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyEShop.Application.UseCases.Products.Commands.Add;
 using MyEShop.Application.UseCases.Products.Commands.Delete;
@@ -32,4 +33,11 @@ public class ProductController(ISender sender) : BaseController(sender)
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Delete([FromBody] DeleteProductCommand deleteProductCommand, CancellationToken cancellationToken = default)
         => Ok(await MediatR.Send(deleteProductCommand, cancellationToken));
+
+    [AllowAnonymous]
+    [HttpGet("ThrowException")]
+    public IActionResult ThrowException()
+    {
+        throw new Exception("This is a test exception.");
+    }
 }

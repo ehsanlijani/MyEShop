@@ -1,20 +1,15 @@
 using HealthChecks.UI.Client;
 using HealthChecks.UI.Configuration;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.EntityFrameworkCore;
 using MyEShop.Api;
+using MyEShop.Api.Extensions;
 using MyEShop.Application;
 using MyEShop.Infrastructure;
-using MyEShop.Infrastructure.Persistence.Context;
-using MyEShop.Infrastructure.Persistence.Seeder;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen();
@@ -30,11 +25,14 @@ builder.Services
 
 #endregion
 
+builder.Host.UseCustomSerilog();
+
 var app = builder.Build();
+
+app.UseGlobalExceptionHandler();
 
 app.Services.EnsureDatabaseMigratedAndSeeded();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

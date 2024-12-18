@@ -15,7 +15,7 @@ public static class PresentationLayerConfigs
                 opt.AddHealthCheckEndpoint("feedback api", "/api/health"); //map health check api    
 
             }).AddInMemoryStorage();
-        return services;
 
+        return services;
     }
 }
